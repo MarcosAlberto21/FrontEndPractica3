@@ -13,6 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.io.IOException;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SafariDriverTest {
@@ -22,12 +23,12 @@ public class SafariDriverTest {
 
     @Before
     public void prepare() {
-        // setup chromedriver
+        // setup SafariWebDriver
         System.setProperty(
                 "webdriver.safari.driver",
                 "webdriver/safaridriver");
 
-        testUrl = "http://localhost:3000/explorer";
+        testUrl = "http://localhost:4200";
 
         // Create a new instance of the Chrome driver
         // Notice that the remainder of the code relies on the interface,
@@ -46,19 +47,22 @@ public class SafariDriverTest {
         List<WebElement> elements = driver
                 .findElements(By.cssSelector("[lang=\"READ_MORE_BTN\"]"));
 
-        // Click the selected button
-        // elements.get(0).click();
-
-
         assertTrue("The page title should be chagned as expected",
                 (new WebDriverWait(driver, 5))
                         .until(new ExpectedCondition<Boolean>() {
                             public Boolean apply(WebDriver d) {
-                                return d.getTitle().equals("LoopBack API Explorer");
+                                return d.getTitle().equals("Frontendg14");
                             }
                         })
         );
+    }
 
+    @Test
+    public void testLoginButton() throws IOException {
+        WebElement element = driver
+                .findElement(By.id("btn_login"));
+
+        assertEquals("Iniciar Sesión", element.getText());
     }
 
     @After

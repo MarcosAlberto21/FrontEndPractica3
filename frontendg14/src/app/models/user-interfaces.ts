@@ -7,6 +7,7 @@ export interface login{
     nombre: String,
     apellido: String,
     dpi: Number,
-    edad: Number
+    edad: Number,
+    id_tipousuario: Number
 
 }

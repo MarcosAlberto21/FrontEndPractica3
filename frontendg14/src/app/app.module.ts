@@ -14,6 +14,7 @@ import { MarkdownModule } from "ngx-markdown";
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AdministradorPageComponent } from './components/administrador-page/administrador-page.component';
 
 const appRoutes: Routes = [
   { path: "", component: LadingPageComponent },
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavComponent,
     LoginComponent,
-    LadingPageComponent
+    LadingPageComponent,
+    AdministradorPageComponent
   ],
   imports: [
     BrowserModule,

@@ -30,17 +30,19 @@ export class LoginComponent implements OnInit {
       console.log(res.username);
   
      
-      if(res.username===this.correo ){
+      if(res.username===this.correo && res.id_tipousuario==1){
         this.valido=true;
         this.correo="";
         this.contrasena="";
         
-        window.location.href="http://localhost:4200/";
+        window.location.href="http://localhost:4200/adminpage";
          
           //proveedor -> 
           //administrador personal ->  
               
         
+        }else{
+          alert("Estamos trabjando para mas usuarios");
         }
       
       },

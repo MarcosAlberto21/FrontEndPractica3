@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 //import { isNullOrUndefined } from 'util';
-import {login}  from '../models/user-interfaces'
+import {login, registro}  from '../models/user-interfaces'
 @Injectable({
   providedIn: 'root'
 })
@@ -50,5 +50,10 @@ export class LoginServicesService {
     const url = "http://localhost:3000/login";
    // return this.http.post(url,{  "identifier": correo, "password": contrasena},{headers:this.headers}).pipe(map(data=>data));
    return this.http.post(url,{  "username": correo, "contrasenia": contrasena},{headers:this.headers});
+  }
+
+  postRegistro(data:registro){
+    const url = "http://localhost:3000/user";
+    return this.http.post(url,data,{headers:this.headers});
   }
 }

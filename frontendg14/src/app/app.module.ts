@@ -15,6 +15,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AdministradorPageComponent } from './components/administrador-page/administrador-page.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const appRoutes: Routes = [
   { path: "", component: LadingPageComponent },
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     NavComponent,
     LoginComponent,
     LadingPageComponent,
-    AdministradorPageComponent
+    AdministradorPageComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

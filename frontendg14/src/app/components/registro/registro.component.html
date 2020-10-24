@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="login">
+      <div class="login"></div>
+      
+      <h2 class="login-header">Registrar</h2>
+    
+      <form #frmRegistrar="ngForm" class="login-container" (ngSubmit)="onRegistrar(frmRegistrar)" >
+        <p><input type="text" name="username" placeholder="username" [(ngModel)]="user.username" autofocus></p>
+        <p><input type="password" name="contrasenia" placeholder="Password" [(ngModel)]="user.contrasenia" required></p>        
+        <p><input type="email" name="correo" placeholder="Email" [(ngModel)]="user.correo" required ></p>
+        <p><input type="text" name="nombre" placeholder="nombre" [(ngModel)]="user.nombre" autofocus></p>
+        <p><input type="text" name="apellido" placeholder="apellido" [(ngModel)]="user.apellido" autofocus></p>
+        <p><input type="text" name="dpi" placeholder="DPI" [(ngModel)]="user.dpi" autofocus></p>
+        <p><input type="number" name="edad" placeholder="edad" [(ngModel)]="user.edad" autofocus></p>
+        <p><input type="submit" value="Registrar"></p>
+
+      </form>
+    </div>
+      
+  </div>

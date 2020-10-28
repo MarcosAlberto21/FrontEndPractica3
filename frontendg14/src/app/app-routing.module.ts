@@ -5,7 +5,7 @@ import { LoginComponent} from "./components/login/login.component";
 import { RegistroComponent } from "./components/registro/registro.component";
 import {LadingPageComponent} from './components/lading-page/lading-page.component';
 import { AdministradorPageComponent} from "./components/administrador-page/administrador-page.component";
-
+import { PerfilComponent } from "./components/perfil/perfil.component";
 const routes: Routes = [
   {
     path: 'login',
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'registro',
     component: RegistroComponent
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent
   }
 ];
 

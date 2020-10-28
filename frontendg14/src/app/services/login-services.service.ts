@@ -43,7 +43,8 @@ export class LoginServicesService {
 
   //get users
   getUser(){
-    const url = "http://localhost:1337/users";
+    const {id_usuario} = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    const url = "http://localhost:3000/user/"+id_usuario;
     return this.http.get(url);
   }
 
@@ -60,5 +61,12 @@ export class LoginServicesService {
   logOut(){
     localStorage.removeItem('usuarioLogeado');
     this.route.navigate(['/login']);
+  }
+  actualizarUsuario(data:any){
+    const {id_usuario} = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    return this.http.put(`http://localhost:3000/actualizarUsuario/${id_usuario}`,data);
+  }
+  estaLog():Boolean{
+    return !!localStorage.getItem('usuarioLogeado');
   }
 }

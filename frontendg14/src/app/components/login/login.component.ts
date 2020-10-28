@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
         this.valido=true;
         this.correo="";
         this.contrasena="";
-        
+        this.loginService.setUser(res);
         window.location.href="http://localhost:4200/adminpage";
          
           //proveedor -> 

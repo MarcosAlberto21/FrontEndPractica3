@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 //import { isNullOrUndefined } from 'util';
 import {login, registro}  from '../models/user-interfaces'
+import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServicesService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private route:Router) { }
 
   headers : HttpHeaders = new HttpHeaders({
     "Content-Type":"application/json"
@@ -42,7 +43,8 @@ export class LoginServicesService {
 
   //get users
   getUser(){
-    const url = "http://localhost:1337/users";
+    const {id_usuario} = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    const url = "http://localhost:3000/user/"+id_usuario;
     return this.http.get(url);
   }
 
@@ -55,5 +57,16 @@ export class LoginServicesService {
   postRegistro(data:registro){
     const url = "http://localhost:3000/user";
     return this.http.post(url,data,{headers:this.headers});
+  }
+  logOut(){
+    localStorage.removeItem('usuarioLogeado');
+    this.route.navigate(['/login']);
+  }
+  actualizarUsuario(data:any){
+    const {id_usuario} = JSON.parse(localStorage.getItem("usuarioLogeado"));
+    return this.http.put(`http://localhost:3000/actualizarUsuario/${id_usuario}`,data);
+  }
+  estaLog():Boolean{
+    return !!localStorage.getItem('usuarioLogeado');
   }
 }

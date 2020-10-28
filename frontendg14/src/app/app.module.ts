@@ -16,6 +16,7 @@ import {CommonModule} from '@angular/common';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AdministradorPageComponent } from './components/administrador-page/administrador-page.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
 
 const appRoutes: Routes = [
   { path: "", component: LadingPageComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     LoginComponent,
     LadingPageComponent,
     AdministradorPageComponent,
-    RegistroComponent
+    RegistroComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

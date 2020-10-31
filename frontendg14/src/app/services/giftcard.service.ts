@@ -20,4 +20,9 @@ export class GiftcardService {
     const url = "https://my-json-server.typicode.com/CoffeePaw/AyD1API/Card??active="+activestr;
     return this.http.get(url);
   }
+  //get values
+  getValues(){
+    const url = "https://my-json-server.typicode.com/CoffeePaw/AyD1API/Value";
+    return this.http.get(url);
+  }
 }

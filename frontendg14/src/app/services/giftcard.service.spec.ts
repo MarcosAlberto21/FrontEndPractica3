@@ -103,8 +103,7 @@ describe('GiftcardService', () => {
     ];
     spyOn(service, 'getValues').and.returnValue(of(values));
     service.getValues(active).subscribe(
-      (res:Array<giftcard>) => {
-        
+      (res:Array<giftcard>) => {      
         done();
       },
       (err) => {

@@ -80,4 +80,37 @@ describe('GiftcardService', () => {
       }
     );
   });
+
+  it('should get list of values of giftcards',  (done) => {
+    //
+    const values = [
+      {
+        "id": "1",
+        "total": "10"
+      },
+      {
+        "id": "2",
+        "total": "25"
+      },
+      {
+        "id": "3",
+        "total": "50"
+      },
+      {
+        "id": "4",
+        "total": "100"
+      }
+    ];
+    spyOn(service, 'getValues').and.returnValue(of(values));
+    service.getValues(active).subscribe(
+      (res:Array<giftcard>) => {
+        
+        done();
+      },
+      (err) => {
+        expect(err).toBeNull(err);
+        done();
+      }
+    );
+  });
 });

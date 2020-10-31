@@ -28,7 +28,7 @@ describe('GiftcardService', () => {
     //
     let active = true;
     let giftcards = service.getGiftcard(active);
-    let giftcardsNOactivas = giftcards.filter((obj)=>{return obj.active})
+    let giftcardsNOactivas = giftcards.filter((obj)=>{return !obj.active})
     expect(giftcards).toBeInstanceOf(Array);
     expect(giftcardsNOactivas.length).toBe(0);
   });

@@ -12,42 +12,70 @@
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-8 pl-md-4">
-    <div class="bg-dark col-md-6 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    <div class="bg-warning col-md-6 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
+    <div class="row p-3" *ngIf="carrito.itemsCarrito.length>0">
+      <div class="col-md-12">
+        <h4 class="alert-heading">Carrito</h4>
+        <table class="table">
+          <thead>
+            <th>GiftCard</th>
+            <th>Cantidad</th>
+            <th>Monto</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of carrito.itemsCarrito">
+              <td>{{item.giftcard.name}} ({{moneda}}{{item.giftcardValue.total}})</td>
+              <td><input type="number" class="sm" style="width: 50px;" [(ngModel)]="item.cantidad" (keyup)="refreshCarrito()"/></td>
+              <td>{{moneda}}{{item.cantidad*item.giftcardValue.total}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <th colspan="2" style="text-align:right">Total</th>
+            <th>{{moneda}}{{carrito.itemsCarrito | sumTotal:refreshPipe}}</th>
+          </tfoot>
+        </table>
+        <div class="col-md-6 offset-3 pt-4">
+          <fieldset>
+            <form #frmRegistrar="ngForm" (ngSubmit)="pagar(frmRegistrar)">
+              <div class="form-group">
+                <label for="ccn">No. de Tarjeta</label>
+                <input id="ccn" name="ccn" [(ngModel)]="pago.ccn" type="tel" class="form-control"  inputmode="numeric" pattern="[0-9\s]{13,16}" autocomplete="cc-number" maxlength="16" placeholder="xxxx xxxx xxxx xxxx">
+                <small id="emailHelp" class="form-text text-muted">Nunca almacenarémos este número de tarjeta.</small>
+              </div>
+              <div class="form-group">
+                <label for="cname">Nombre en la tarjeta</label>
+                <input id="cname" name="cname" [(ngModel)]="pago.cname" type="text" class="form-control" placeholder="Elvis Presley">
+              </div>
+              <div class="form-group">
+                <label for="cexp">Fecha de expiración</label>
+                <input id="cexp"  name="cexp" [(ngModel)]="pago.cexp" type="text" style="width: 100px;" class="form-control" placeholder="MM/YY">
+              </div>
+              <div class="form-group">
+                <label for="cv">Codigo verificadon</label>
+                <input id="cv" type="tel" name="cv" [(ngModel)]="pago.cv" inputmode="numeric" pattern="[0-9\s]" autocomplete="cv-number" maxlength="3" style="width: 100px;" class="form-control" placeholder="123">
+              </div>
+              <div class="form-group text-center">
+                <input class="btn btn-primary" type="submit" value="¡Comprar!">
+              </div>
+            </form>
+          </fieldset>
+        </div>
+      </div>      
     </div>
 
-    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-4">
-    <div class="bg-secondary col-md-6 text-center overflow-hidden">
-      <div class="my-3 p-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
+    <div class="row">
+      <div *ngFor="let giftcard of giftCards" class="bg-dark col-md-6 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5"> {{ giftcard.name }} </h2>
+          <p class="lead">{{ giftcard.chargeRate }}</p>
+          <div *ngIf="carrito.idusuario">
+            <button title="Agregar a carrito" *ngFor="let av of giftcard.availability" (click)="agregarCarrito(giftcard, giftCardsValues[av])" class="btn btn-outline-primary">{{moneda}}.{{giftCardsValues[av].total}}</button>
+          </div>
+        </div>
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;">
+          <img src="{{giftcard.image}}" width="100%" />
+        </div>
       </div>
-      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
     </div>
-    <div class="bg-primary col-md-6 text-center text-white overflow-hidden">
-      <div class="my-3 py-3">
-        <h2 class="display-5">Another headline</h2>
-        <p class="lead">And an even wittier subheading.</p>
-      </div>
-      <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-    </div>
-    </div>
-
-
-
 
     <footer class="container py-5">
     <div class="row">

@@ -18,6 +18,8 @@ import { AdministradorPageComponent } from './components/administrador-page/admi
 import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+import { sumTotal } from './pipes/sumTotal.pipe';
+
 const appRoutes: Routes = [
   { path: "", component: LadingPageComponent },
   
@@ -33,7 +35,8 @@ const appRoutes: Routes = [
     LadingPageComponent,
     AdministradorPageComponent,
     RegistroComponent,
-    PerfilComponent
+    PerfilComponent,
+    sumTotal
   ],
   imports: [
     BrowserModule,

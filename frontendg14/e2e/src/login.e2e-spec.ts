@@ -9,7 +9,7 @@ describe('Login App', () => {
         element(by.id('login')).click();
         browser.sleep(3000);
     });
-    it('Ingresamo el username y la contraseña.',async () => {        
+    it('Ingresamos el username y la contraseña.',async () => {        
         //pruebaCarlota 7777
         element(by.id('inputEmail')).sendKeys('pruebaCarlota');
         element(by.id('inputPassword')).sendKeys('7777');

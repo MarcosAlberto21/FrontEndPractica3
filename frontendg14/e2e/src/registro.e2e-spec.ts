@@ -1,22 +1,26 @@
 import { browser, by, element } from 'protractor';
 
-describe('Login App', () => {
+describe('Registro', () => {
     it('Ingresamos a la pagina de inicio.',async () => {        
         await browser.get('http://localhost:4200');
         browser.sleep(500);
     });
-    it('Click para ir a la vista de iniciar sesión.',async () => {        
-        element(by.id('login')).click();
-        browser.sleep(3000);
+    it('Click para ir a la vista de registro.',async () => {        
+        element(by.id('registro')).click();
+        browser.sleep(2000);
     });
-    it('Ingresamo el username y la contraseña.',async () => {        
-        //pruebaCarlota 7777
-        element(by.id('inputEmail')).sendKeys('pruebaCarlota');
-        element(by.id('inputPassword')).sendKeys('7777');
+    it('Ingresamos los datos.',async () => { 
+        element(by.name('username')).sendKeys('user-2');
+        element(by.name('contrasenia')).sendKeys('user-2');
+        element(by.name('correo')).sendKeys('user-2@gmail.com');
+        element(by.name('nombre')).sendKeys('nombre');
+        element(by.name('apellido')).sendKeys('apellido');
+        element(by.name('dpi')).sendKeys('777744442');
+        element(by.name('edad')).sendKeys('35');
         browser.sleep(1000);
     });
-    it('Damos click en el boton sign in.',async () => {        
-        element(by.id('btn_sign_in')).click();
+    it('Damos enviar.',async () => {        
+        element(by.id('actualizar')).click();
         browser.sleep(5000);
     });
 

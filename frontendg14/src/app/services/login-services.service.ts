@@ -40,6 +40,9 @@ export class LoginServicesService {
     }
   }*/
 
+  getIdUser(){
+    return JSON.parse(localStorage.getItem("usuarioLogeado"));
+  }
 
   //get users
   getUser(){

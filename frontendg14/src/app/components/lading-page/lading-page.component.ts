@@ -79,12 +79,8 @@ export class LadingPageComponent implements OnInit {
   }
 
   pagar(form){
-    console.log("form",form.value);
-    console.log("this.ccService.validateCcn(form.value.ccn)",this.ccService.validateCcn(form.value.ccn));
-    console.log("this.ccService.validateCname(form.value.cname)",this.ccService.validateCname(form.value.cname));
-    console.log("this.ccService.validateCexp(form.value.cexp)",this.ccService.validateCexp(form.value.cexp));
-    console.log("this.ccService.validateCv(form.value.cv)",this.ccService.validateCv(form.value.cv));
 
+    if(confirm("Está seguro que desea pagar por los giftcards seleccionados?")){
     if(this.ccService.validateCcn(form.value.ccn)
         && this.ccService.validateCname(form.value.cname)
         && this.ccService.validateCexp(form.value.cexp)
@@ -104,6 +100,9 @@ export class LadingPageComponent implements OnInit {
         }else{
           alert("¡Verifique! Hay campos con error")
         }
+
+    }
+
   }
 
 }

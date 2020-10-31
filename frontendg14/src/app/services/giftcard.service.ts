@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 //import { isNullOrUndefined } from 'util';
-import {giftcard}  from '../models/giftcard'
+import {itemCarrito,carrito}  from '../models/carrito'
 import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
@@ -24,5 +24,10 @@ export class GiftcardService {
   getValues(){
     const url = "https://my-json-server.typicode.com/CoffeePaw/AyD1API/Value";
     return this.http.get(url);
+  }
+
+  saveHistorialUsuario(carrito:carrito){
+    const url = "http://localhost:3000/giftcard/historial";
+    return this.http.post(url,{idusuario:carrito.idusuario,items:carrito.itemsCarrito});
   }
 }

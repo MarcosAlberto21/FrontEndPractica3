@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "testxp": "ng test --include='src/app/services/cc.service.spec.ts'"
+    "testxp": "ng test --include='src/app/services/giftcard.service.spec.ts'"
   },
   "private": true,
   "dependencies": {

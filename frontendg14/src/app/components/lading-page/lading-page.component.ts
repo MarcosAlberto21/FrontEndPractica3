@@ -88,8 +88,12 @@ export class LadingPageComponent implements OnInit {
     if(this.ccService.validateCcn(form.value.ccn)
         && this.ccService.validateCname(form.value.cname)
         && this.ccService.validateCexp(form.value.cexp)
-        && this.ccService.validateCv(form.value.cv)){          
-          alert("¡Pagado!")
+        && this.ccService.validateCv(form.value.cv)){                    
+          this.carrito = {
+            idusuario: this.loginServiceService.getIdUser(),
+            itemsCarrito:[]
+          };
+          alert("¡Pagado!");
         }else{
           alert("¡Verifique! Hay campos con error")
         }

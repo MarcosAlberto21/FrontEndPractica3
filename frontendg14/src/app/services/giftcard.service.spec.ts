@@ -3,6 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { of } from 'rxjs'; // Add import
 
 import {giftcard , giftcardValue}  from '../models/giftcard'
+import {carrito}  from '../models/carrito'
 import { GiftcardService } from './giftcard.service';
 
 describe('GiftcardService', () => {
@@ -105,6 +106,24 @@ describe('GiftcardService', () => {
     service.getValues().subscribe(
       (res:Array<giftcardValue>) => {   
         expect(res).toBeInstanceOf(Array);   
+        done();
+      },
+      (err) => {
+        expect(err).toBeNull(err);
+        done();
+      }
+    );
+  });
+
+  it('should save historial',  (done) => {
+    //
+    let carrito:carrito;
+
+    const value = 'ok';
+    spyOn(service, 'saveHistorialUsuario').and.returnValue(of(value));
+    service.saveHistorialUsuario(carrito).subscribe(
+      (res) => {   
+        expect(res).toBe('ok');   
         done();
       },
       (err) => {

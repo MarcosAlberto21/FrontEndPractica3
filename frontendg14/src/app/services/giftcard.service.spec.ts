@@ -65,7 +65,7 @@ describe('GiftcardService', () => {
       }
     ];
     spyOn(service, 'getGiftcard').and.returnValue(of(giftcards));
-    let active = false;
+    let active = true;
     service.getGiftcard(active).subscribe(
       (res:Array<giftcard>) => {
         let giftcards = res;

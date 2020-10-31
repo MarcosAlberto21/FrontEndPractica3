@@ -9,3 +9,11 @@ export interface giftcard{
     availability: Array<Number>
 
 }
+
+export interface giftcardValue{
+
+
+    id: String,
+    total: String
+
+}

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { of } from 'rxjs'; // Add import
 
-import {giftcard,giftcardValue}  from '../models/giftcard'
+import {giftcard , giftcardValue}  from '../models/giftcard'
 import { GiftcardService } from './giftcard.service';
 
 describe('GiftcardService', () => {
@@ -103,7 +103,8 @@ describe('GiftcardService', () => {
     ];
     spyOn(service, 'getValues').and.returnValue(of(values));
     service.getValues().subscribe(
-      (res:Array<giftcardValue>) => {      
+      (res:Array<giftcardValue>) => {   
+        expect(res).toBeInstanceOf(Array);   
         done();
       },
       (err) => {

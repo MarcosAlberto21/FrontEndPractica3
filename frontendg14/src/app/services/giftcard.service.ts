@@ -15,7 +15,7 @@ export class GiftcardService {
   })
 
   //get giftcards
-  getGiftcard(active:boolean = true){
+  getGiftcard(active:boolean){
     let activestr = active?"true":"false";
     const url = "https://my-json-server.typicode.com/CoffeePaw/AyD1API/Card??active="+activestr;
     return this.http.get(url);

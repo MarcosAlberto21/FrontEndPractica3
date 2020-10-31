@@ -15,7 +15,7 @@ export class GiftcardService {
   })
 
   //get giftcards
-  getGiftcard(){
-
+  getGiftcard(active:boolean = true){
+    return [];
   }
 }

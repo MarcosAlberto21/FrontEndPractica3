@@ -24,8 +24,12 @@ describe('GiftcardService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get list of giftcards', () => {
-    let giftcards = service.getGiftcard();
+  it('should get list of active giftcards', () => {
+    //
+    let active = true;
+    let giftcards = service.getGiftcard(active);
+    let giftcardsNOactivas = giftcards.filter((obj)=>{return obj.active})
     expect(giftcards).toBeInstanceOf(Array);
+    expect(giftcardsNOactivas.length).toBe(0);
   });
 });

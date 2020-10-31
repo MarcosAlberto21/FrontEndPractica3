@@ -22,9 +22,34 @@ describe('CcService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should give error whne validate wrong ccn',  (done) => {
-    let ccn = '123'
+  it('should give error when validate wrong ccn',  () => {
+    let ccn = '457116007166251'
     expect(service.validateCcn(ccn)).toBeFalse();
+  });
+
+  it('should validate ccn ok',  () => {
+    let ccn = '4571160071662511'
+    expect(service.validateCcn(ccn)).toBeTrue();
+  });
+
+  it('should validate cname alfanumeric',  () => {
+    let cname = 'Jose';
+    expect(service.validateCname(cname)).toBeTrue();
+  });
+
+  it('should validate cexp',  () => {
+    let cname = '12/12';
+    expect(service.validateCexp(cname)).toBeTrue();
+  });
+
+  it('should validate cexp wrong',  () => {
+    let cname = '11/12/';
+    expect(service.validateCexp(cname)).toBeFalse();
+  });
+
+  it('should validate cv',  () => {
+    let cname = '123';
+    expect(service.validateCv(cname)).toBeTrue();
   });
 
 });

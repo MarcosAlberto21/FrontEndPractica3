@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GiftcardService} from 'src/app/services/giftcard.service'
 import { LoginServicesService} from 'src/app/services/login-services.service'
+import { CcService} from 'src/app/services/cc.service'
 import {giftcard, giftcardValue}  from 'src/app/models/giftcard'
 import {carrito, itemCarrito}  from 'src/app/models/carrito'
 import {pago}  from 'src/app/models/pago'
@@ -13,7 +14,7 @@ import { from } from 'rxjs';
 })
 export class LadingPageComponent implements OnInit {
 
-  constructor(public giftcardService: GiftcardService,public loginServiceService: LoginServicesService) { }
+  constructor(public giftcardService: GiftcardService,public loginServiceService: LoginServicesService, public ccService: CcService) { }
 
   giftCards:Array<giftcard>;
   giftCardsValues: {[key: string]: giftcardValue}
@@ -79,15 +80,19 @@ export class LadingPageComponent implements OnInit {
 
   pagar(form){
     console.log("form",form.value);
+    console.log("this.ccService.validateCcn(form.value.ccn)",this.ccService.validateCcn(form.value.ccn));
+    console.log("this.ccService.validateCname(form.value.cname)",this.ccService.validateCname(form.value.cname));
+    console.log("this.ccService.validateCexp(form.value.cexp)",this.ccService.validateCexp(form.value.cexp));
+    console.log("this.ccService.validateCv(form.value.cv)",this.ccService.validateCv(form.value.cv));
 
-    //validar ccn
-
-    //validar cname
-
-    //validar cexp
-
-    //validar cv
-
+    if(this.ccService.validateCcn(form.value.ccn)
+        && this.ccService.validateCname(form.value.cname)
+        && this.ccService.validateCexp(form.value.cexp)
+        && this.ccService.validateCv(form.value.cv)){          
+          alert("¡Pagado!")
+        }else{
+          alert("¡Verifique! Hay campos con error")
+        }
   }
 
 }

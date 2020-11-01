@@ -3,6 +3,7 @@ export interface login{
 
     id_usuario: Number,
     username: String,
+    correo:String,
     contrasenia: String,
     nombre: String,
     apellido: String,

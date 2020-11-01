@@ -54,7 +54,7 @@ export class LoginServicesService {
   postLogin(correo:String, contrasena:String){
     const url = "http://localhost:3000/login";
    // return this.http.post(url,{  "identifier": correo, "password": contrasena},{headers:this.headers}).pipe(map(data=>data));
-   return this.http.post(url,{  "username": correo, "contrasenia": contrasena},{headers:this.headers});
+   return this.http.post(url,{  "correo": correo, "contrasenia": contrasena},{headers:this.headers});
   }
 
   postRegistro(data:registro){

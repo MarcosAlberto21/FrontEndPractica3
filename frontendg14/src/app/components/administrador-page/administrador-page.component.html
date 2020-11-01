@@ -1,20 +1,73 @@
 <p>administrador-page works!</p>
 <div id="todo">
-<div class="card" style="width: 18rem; margin-right: 50%;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  <button type="button" (click)="vercatalogo()" class="btn btn-info">Ver Catalogo</button>
+  <button type="button" (click)="vertransaciones()" class="btn btn-info">Ver compras</button>
+  
+  <div *ngIf="vercata" id="accordion">
+    <div *ngFor="let tarjeta of listaCatalogo" class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            {{tarjeta.nombre}}
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card" style="width: 400px;">
+          <img class="card-img-top" src={{tarjeta.imagen}} width="300px" height="400px" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">{{tarjeta.nombre}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{"id tarjeta: "+tarjeta.id_tipogiftcard}}</li>
+            <li class="list-group-item">{{"active: "+tarjeta.active}}</li>
+            <li class="list-group-item">{{"chargenerate: "+tarjeta.chargerate}}</li>
+          </ul>
+         
+        </div>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+
+    
+
+  
+  </div>
+
+
+
+  <div *ngIf="vertran" id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Collapsible Group Item #1
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card" style="width: auto;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
     </div>
+  
+  
   </div>
 
 </div>

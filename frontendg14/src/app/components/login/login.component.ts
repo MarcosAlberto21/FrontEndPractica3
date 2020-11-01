@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       console.log(res.username);
   
      
-      if(res.username===this.correo && res.id_tipousuario==1){
+      if((res.username===this.correo || res.correo==this.correo) && res.id_tipousuario==1){
         this.valido=true;
         this.correo="";
         this.contrasena="";

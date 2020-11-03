@@ -21,4 +21,6 @@ mvn clean test
 
 El resultado es el siguiente:
 
+
+
 ![](./docs/img/autotests.gif)

@@ -6,6 +6,9 @@ import { RegistroComponent } from "./components/registro/registro.component";
 import {LadingPageComponent} from './components/lading-page/lading-page.component';
 import { AdministradorPageComponent} from "./components/administrador-page/administrador-page.component";
 import { PerfilComponent } from "./components/perfil/perfil.component";
+import { TransaccionesComponent} from "./components/transacciones/transacciones.component";
+
+import { InventarioComponent } from "./components/inventario/inventario.component";
 const routes: Routes = [
   {
     path: 'login',
@@ -22,6 +25,15 @@ const routes: Routes = [
   {
     path: 'perfil',
     component: PerfilComponent
+  },
+  {
+    path: 'inventario',
+    component: InventarioComponent
+
+  },
+  {
+    path: 'transacciones',
+    component: TransaccionesComponent
   }
 ];
 

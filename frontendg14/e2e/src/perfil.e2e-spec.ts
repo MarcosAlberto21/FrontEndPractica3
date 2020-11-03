@@ -23,7 +23,9 @@ describe('Login App', () => {
         await browser.get('http://localhost:4200/perfil');
         browser.sleep(5000);
     });
-    it('Ingresamos los datos que queremos actualizar.',async () => { 
+    it('Ingresamos los datos que queremos actualizar.',async () => {         
+        element(by.name('nombre')).clear();        
+        element(by.name('apellido')).clear();
         element(by.name('nombre')).sendKeys('nombre-e2e');
         element(by.name('apellido')).sendKeys('apellido-e2e');
         browser.sleep(1000);

@@ -10,12 +10,13 @@ describe('Registro', () => {
         browser.sleep(2000);
     });
     it('Ingresamos los datos.',async () => { 
-        element(by.name('username')).sendKeys('user-2');
-        element(by.name('contrasenia')).sendKeys('user-2');
-        element(by.name('correo')).sendKeys('user-2@gmail.com');
-        element(by.name('nombre')).sendKeys('nombre');
-        element(by.name('apellido')).sendKeys('apellido');
-        element(by.name('dpi')).sendKeys('777744442');
+        const random = Math.floor(Math.random() * (10000 - 200)) + 200;
+        element(by.name('username')).sendKeys('user-'+random);
+        element(by.name('contrasenia')).sendKeys('user-'+random);
+        element(by.name('correo')).sendKeys('user-'+random+'@gmail.com');
+        element(by.name('nombre')).sendKeys('nombre'+random);
+        element(by.name('apellido')).sendKeys('apellido'+random);
+        element(by.name('dpi')).sendKeys('777744442'+random);
         element(by.name('edad')).sendKeys('35');
         browser.sleep(1000);
     });

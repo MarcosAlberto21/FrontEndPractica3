@@ -34,6 +34,6 @@ export class GiftcardService {
 
   saveHistorialUsuario(carrito:carrito){
     const url = "http://localhost:3000/giftcard/historial";
-    return this.http.post(url,{idusuario:carrito.idusuario,items:carrito.itemsCarrito});
+    return this.http.post(url,{idusuario:carrito.idusuario,items:carrito.itemsCarrito,pago:carrito.pago});
   }
 }

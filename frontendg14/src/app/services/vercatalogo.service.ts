@@ -34,4 +34,18 @@ export class VercatalogoService {
     const url="http://localhost:3000/detallecompras";
     return this.http.get(url);
   }
+
+
+  getInventarioUsuario(usuario:string){
+   const url="http://localhost:3000/detallecomprasporusuario/"+usuario;
+   return this.http.get(url);
+  }
+
+  //http://localhost:3000/detalletransacciones/ClaudioRebollo@gmail.com
+
+  getTransacciones(usuario:string){
+    const url="http://localhost:3000/detalletransacciones/"+usuario;
+    return this.http.get(url);
+   }
+ 
 }

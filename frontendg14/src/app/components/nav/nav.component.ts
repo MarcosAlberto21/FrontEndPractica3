@@ -9,7 +9,11 @@ export class NavComponent implements OnInit {
 
   constructor(public loginService: LoginServicesService) { }
 
+  public nombre:String;
   ngOnInit(): void {
+
+    this.nombre=this.loginService.getIdUser().username;
+
   }
 
 }

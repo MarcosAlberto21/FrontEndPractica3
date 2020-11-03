@@ -38,17 +38,14 @@ export class LoginComponent implements OnInit {
         
         window.location.href="http://localhost:4200/adminpage";
         }else if(res.id_tipousuario==2){
-
-          
+          this.loginService.setUser(res);
+          window.location.href="http://localhost:4200";
         }
 
           //proveedor -> 
           //administrador personal ->  
               
-        
-        }else{
-          alert("Estamos trabjando para mas usuarios");
-        }
+       
       
       },
       error=>{

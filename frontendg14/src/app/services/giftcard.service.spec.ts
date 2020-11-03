@@ -115,6 +115,26 @@ describe('GiftcardService', () => {
     );
   });
 
+  it('should get tasa cambio',  (done) => {
+
+    const tasacambio = [
+      {
+        "total": "7.85"
+      }
+    ];
+    spyOn(service, 'getTasaCambio').and.returnValue(of(tasacambio));
+    service.getTasaCambio().subscribe(
+      (res) => {   
+        expect(res).toBe(tasacambio);   
+        done();
+      },
+      (err) => {
+        expect(err).toBeNull(err);
+        done();
+      }
+    );
+  });
+
   it('should save historial',  (done) => {
     //
     let carrito:carrito;

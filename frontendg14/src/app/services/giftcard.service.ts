@@ -26,6 +26,12 @@ export class GiftcardService {
     return this.http.get(url);
   }
 
+  //get tasa cambio
+  getTasaCambio(){
+    const url = "https://my-json-server.typicode.com/CoffeePaw/AyD1API/TasaCambio";
+    return this.http.get(url);
+  }
+
   saveHistorialUsuario(carrito:carrito){
     const url = "http://localhost:3000/giftcard/historial";
     return this.http.post(url,{idusuario:carrito.idusuario,items:carrito.itemsCarrito});

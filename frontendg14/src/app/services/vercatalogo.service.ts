@@ -30,4 +30,8 @@ export class VercatalogoService {
   }
 
 
+  getCompras(){
+    const url="http://localhost:3000/detallecompras";
+    return this.http.get(url);
+  }
 }

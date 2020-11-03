@@ -34,9 +34,16 @@ export class LoginComponent implements OnInit {
         this.valido=true;
         this.correo="";
         this.contrasena="";
+        
+        if(res.id_tipousuario==1){
         this.loginService.setUser(res);
-        window.location.href="http://localhost:4200/";
-         
+        
+        window.location.href="http://localhost:4200/adminpage";
+        }else if(res.id_tipousuario==2){
+
+          
+        }
+
           //proveedor -> 
           //administrador personal ->  
               

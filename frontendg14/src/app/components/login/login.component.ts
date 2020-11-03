@@ -28,13 +28,7 @@ export class LoginComponent implements OnInit {
        
       console.log("Mostrando los datos: ");
       console.log(res.username);
-<<<<<<< HEAD
-  
-     
-
-=======
       if(res.id_tipousuario==1){
->>>>>>> 909a79b3de5606059959614b87ed2269dbdc3a1d
         this.valido=true;
         this.correo="";
         this.contrasena="";

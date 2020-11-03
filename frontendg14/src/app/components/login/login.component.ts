@@ -28,9 +28,7 @@ export class LoginComponent implements OnInit {
        
       console.log("Mostrando los datos: ");
       console.log(res.username);
-  
-     
-      if((res.username===this.correo || res.correo==this.correo) && res.id_tipousuario==1){
+      if(res.id_tipousuario==1){
         this.valido=true;
         this.correo="";
         this.contrasena="";
@@ -54,6 +52,7 @@ export class LoginComponent implements OnInit {
       
       },
       error=>{
+        alert('Creedenciales invalidas.')
         this.validoaux=true;
         this.correo="";
         this.contrasena="";

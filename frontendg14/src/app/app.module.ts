@@ -19,6 +19,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
 import { sumTotal } from './pipes/sumTotal.pipe';
+import { BotonRegalarComponent } from './components/boton-regalar/boton-regalar.component';
+import { ToastComponent } from './components/toast/toast.component';
 import { InventarioComponent } from './components/inventario/inventario.component';
 import { TransaccionesComponent } from './components/transacciones/transacciones.component';
 
@@ -39,6 +41,8 @@ const appRoutes: Routes = [
     RegistroComponent,
     PerfilComponent,
     sumTotal,
+    BotonRegalarComponent,
+    ToastComponent,
     InventarioComponent,
     TransaccionesComponent
   ],

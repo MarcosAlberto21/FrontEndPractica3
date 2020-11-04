@@ -28,9 +28,7 @@ export class LoginComponent implements OnInit {
        
       console.log("Mostrando los datos: ");
       console.log(res.username);
-  
      
-      if((res.username===this.correo || res.correo==this.correo) && res.id_tipousuario==1){
         this.valido=true;
         this.correo="";
         this.contrasena="";
@@ -40,20 +38,18 @@ export class LoginComponent implements OnInit {
         
         window.location.href="http://localhost:4200/adminpage";
         }else if(res.id_tipousuario==2){
-
-          
+          this.loginService.setUser(res);
+          window.location.href="http://localhost:4200";
         }
 
           //proveedor -> 
           //administrador personal ->  
               
-        
-        }else{
-          alert("Estamos trabjando para mas usuarios");
-        }
+       
       
       },
       error=>{
+        alert('Creedenciales invalidas.')
         this.validoaux=true;
         this.correo="";
         this.contrasena="";

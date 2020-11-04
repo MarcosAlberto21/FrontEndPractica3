@@ -1,0 +1,35 @@
+<div id="accordion">
+    <div *ngFor="let compra of listaCompras;" class="card">
+      <div class="card-header" id={{compra.username+sumar()+sumar()}}>
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse"  [attr.data-target]="'#l' + i" aria-expanded="true" [attr.aria-controls]="'l'+i">
+            {{"Nombre usuario: "+ compra.username}}
+          </button>
+        </h5>
+      </div>
+  
+      <div [attr.id]="'l'+i" class="collapse" [attr.aria-labelledby]="compra.username+i" data-parent="#accordion">
+        <div class="card" style="width: 400px;">
+          <img class="card-img-top" src={{compra.imagen}} width="300px" height="400px" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Detalles de la compra</h5>
+            <p class="card-text">{{"Sr(ra): "+compra.apellido}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{"dpi: "+compra.dpi}}</li>
+            <li class="list-group-item">{{"no de tarjeta: "+compra.no_tarjeta}}</li>
+            <li class="list-group-item">{{"fecha de expiracion: "+compra.fecha_expiracion}}</li>
+            <li class="list-group-item">{{"fecha de la compra: "+compra.fecha}}</li>
+            <li class="list-group-item">{{"nombre giftcard: "+compra.nombre}}</li>
+            <li class="list-group-item">{{"correo: "+compra.correo}}</li>
+            <li class="list-group-item">{{"id valor: "+compra.id_valor}}</li>
+            <li class="list-group-item">{{"codigo alfanumerico: "+compra.id_giftcard}}</li>
+          </ul>
+        
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+

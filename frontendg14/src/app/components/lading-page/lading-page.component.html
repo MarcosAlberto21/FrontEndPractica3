@@ -53,6 +53,17 @@
                 <label for="cv">Codigo verificadon</label>
                 <input id="cv" type="tel" name="cv" [(ngModel)]="pago.cv" inputmode="numeric" pattern="[0-9\s]" autocomplete="cv-number" maxlength="3" style="width: 100px;" class="form-control" placeholder="123">
               </div>
+              <div class="form-group">
+                <label for="currency">Moneda</label>
+                <select name="currency" id="currency" [(ngModel)]="moneda" (change)="CambiarMonedaPago($event)" class="form-control" style="width: 60px;" >
+                  <option value="$">$</option>
+                  <option value="Q">Q</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="total">Total a pagar = </label>
+                <strong><label> {{moneda}}{{(carrito.itemsCarrito | sumTotal:refreshPipe)*tasa}}</label></strong>
+              </div>
               <div class="form-group text-center">
                 <input class="btn btn-primary" type="submit" value="¡Comprar!">
               </div>

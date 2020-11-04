@@ -1,0 +1,1 @@
+export const ipApp = 'http://localhost:3000';

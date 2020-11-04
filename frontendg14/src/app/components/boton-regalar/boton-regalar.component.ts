@@ -4,6 +4,7 @@ import { regalo } from 'src/app/models/regalo';
 import { userGift } from 'src/app/models/userGift';
 import { LoginServicesService } from 'src/app/services/login-services.service';
 import { RegaloServicesService } from '../../services/regalo-services.service';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-boton-regalar',
@@ -25,7 +26,7 @@ export class BotonRegalarComponent implements OnInit {
   public otherUser: userGift[] = [];
 
   constructor(private modalService: NgbModal, private regaloServicio: RegaloServicesService, 
-    private loginService: LoginServicesService) { }
+    private loginService: LoginServicesService, public toastService: ToastService) { }
 
   ngOnInit(): void {
     this.ObtenerOtrosUsuario();
@@ -41,13 +42,14 @@ export class BotonRegalarComponent implements OnInit {
       //console.log(this.otherUser);
 
     },error=>{
-
+      this.toastService.showError('Hubo un error con la carga de usuarios, intentelo mas tarde!!');
     });
   }
 
   guardarUsuarioRegalo(user:string, pos: number){
     this.nombre = user;
     this.index = pos;
+    this.toastService.showInfo(`El regalo sera dirigido a ${user}`);
   }
 
   regalarGift() {
@@ -55,8 +57,9 @@ export class BotonRegalarComponent implements OnInit {
     this.regalo.para = this.otherUser[this.index].id_usuario;
     this.regaloServicio.regalarGiftcard(this.regalo).subscribe((res)=>{
 
+      this.toastService.showSuccess('Proceso finalizado',`Su regalo al usario ${this.nombre} se completo exitosamente`);
     },error=>{
-
+      this.toastService.showError('Hubo un error con su regalo, intentelo mas tarde!!');
     });
   }
 

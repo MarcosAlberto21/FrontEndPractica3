@@ -28,7 +28,7 @@ export class ToastService {
   showSuccess(titulo: string, cuerpo: string) {
     this.show(cuerpo, {
       classname: 'bg-success text-light',
-      delay: 2000 ,
+      delay: 5000 ,
       autohide: true,
       headertext: titulo
     });
@@ -37,7 +37,7 @@ export class ToastService {
   showError(cuerpo: string) {
     this.show(cuerpo, {
       classname: 'bg-danger text-light',
-      delay: 2000 ,
+      delay: 5000 ,
       autohide: true,
       headertext: 'Error!!!'
     });
